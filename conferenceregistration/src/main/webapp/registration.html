@@ -1,0 +1,132 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+<title> Conference Registartion</title>
+<script language="javascript">
+function chkEmpty(){
+var mob = /^[7-9]{1}[0-9]{9}$/;
+var email=/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;
+if (document.frmReg.txtFirstName.value == "") {alert("Please fill the First Name");}
+else if (document.frmReg.txtLastName.value == "") {alert("Please fill the Last Name");}
+else if (document.frmReg.txtEmail.value == ""){alert("Please fill the Email");}
+else if (email.test(document.frmReg.txtEmail.value) == false) { alert("Please enter valid Email Id.");}
+else if (document.frmReg.txtPhone.value == "") {alert("Please fill the Contact No.");}
+//else if (document.frmReg.txtPhone.length != 10) {alert("Enter 10-digit Contact no.");}
+else if (mob.test(document.frmReg.txtPhone.value) == false) { alert("Please enter valid Contact no.");}
+else if (document.frmReg.size.value == ""){alert("Please fill the Number of people attending");}
+else if (document.frmReg.txtAddress1.value == ""){alert("Please fill the Building & Room No");}
+else if (document.frmReg.txtAddress2.value == ""){alert("Please fill the Area name");}
+else if (document.frmReg.city.value=="Select City"){alert("Please select city")}
+else if (document.frmReg.state.value=="Select State"){alert("Please select state")}
+else if (document.frmReg.memberStatus[0].checked==false&&document.frmReg.memberStatus[1].checked==false){alert("Please Select MemeberShip status");}
+else {
+alert("Personal details are validated.");
+window.location = 'PaymentDetails.html';
+}
+}
+</script>
+
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:Material_x0020_Type msdt:dt="string">Extra Material</mso:Material_x0020_Type>
+<mso:Category msdt:dt="string">Assessment Component</mso:Category>
+<mso:Level msdt:dt="string">L1</mso:Level>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->	
+</head>
+<body onclick="myFunction()">
+<h2 style="font-family:Calibri;" align="center">Conference Registration</h2>
+<h3 style="font-family:Calibri;" align="center">Please book your conference by filling the form below, Specify the expected number joining the conference.</h3>
+<h4 style="font-family:Calibri;" align="center">Step 1: Personal Details</h4>
+       <form name="frmReg">
+
+	   <table  align="center" style="font-family:Calibri;box-shadow:5px 5px 5px 5px cyan;" >
+            
+          <tr>
+                <td align="left">First Name* : </td>
+                <td><input type="text" class="Format1" id ="txtFirstName" name="txtFN" /></td>
+            </tr>
+			<tr>
+                <td align="left">Last Name* :</td>
+                <td align="left"><input type="text" id ="txtLastName" name="txtLN"/></td>
+            </tr>
+			 			<tr>
+                <td align="left">Email* :</td>
+                <td><input type="text" id ="txtEmail" name="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></td>
+            </tr>
+            	
+			<tr>
+                <td align="left">Contact no.*:</td>
+                <td><input type="text" name="Phone" id ="txtPhone"   pattern="[789][0-9]{9}"/></td>
+            </tr>
+			<tr>
+				<td align="left">Number of people attending*:</td>
+				<td>
+				<select name ="size" size="5" required>
+				<option value="one">1</option>
+				<option value="two">2</option>
+				<option value="three">3</option>
+				<option value="four">4</option>
+				<option value="five">5</option>
+				</select>
+				</td>
+				
+			</tr>
+			<tr>
+                <td align="left">Address*:</td>
+			</tr>
+			<tr>
+				<td align="left">Building Name & Room No </td>
+				<td><input type="text" name="Address" id ="txtAddress1" /></td>
+			</tr>
+			<tr>
+				<td align="Left">Area Name</td>
+                <td align="left"><input type="text" name="Address2" id ="txtAddress2" /></td>
+			</tr>
+			<tr>
+	            <td align="left">City : </td>
+	            <td><select  name="city">
+					  <option value="Select City" selected>Select City</option>
+					  <option value="Pune">Pune</option>
+					  <option value="Bangalore">Bangalore</option>
+					  <option value="Chennai">Chennai</option>
+					   <option value="Hyderabad">Hyderabad</option>
+				</select></td>
+	        </tr>
+			<tr>
+	            <td align="left">State : </td>
+	            <td align="left"><select  name="state">
+					  <option value="Select State" selected>Select State</option>
+					<option value="Maharashtra">Maharashtra</option>	
+					  <option value="Karnataka">Karnataka</option>
+					  <option value="Tamilnadu">Tamilnadu</option>
+					  <option value="Telangana">Telangana</option>
+					   
+				</select></td>
+	        </tr>
+			
+			
+			<tr>
+	            <tr>
+			
+			<td>Conference full-Access(member)(1000 Rs.)</td><td><input type="radio" name="memberStatus" value="member"></td>
+			</tr>
+			<tr>
+			<td>Conference full-Access(non-member)(1500 Rs.)</td><td><input type="radio" name="memberStatus" value="non-member"></td>
+	</tr>
+
+	        </tr>
+			
+                
+			<tr>
+                <td colspan=2 align="right"> <br> 
+				
+			<!--	<input type=button onclick=chkEmpty() value=Next>-->
+			<a href="#" onclick=chkEmpty()> Next </a>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </tr>
+           </table>
+
+       </form>
+    </body>
+</html>
